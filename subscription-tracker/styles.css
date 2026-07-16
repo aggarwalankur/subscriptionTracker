@@ -1,0 +1,254 @@
+/* Subscription Tracker - base styles */
+
+:root {
+  --color-bg: #f5f6fa;
+  --color-surface: #ffffff;
+  --color-text: #1f2430;
+  --color-muted: #6b7280;
+  --color-border: #e0e2e8;
+  --color-primary: #3b5bfd;
+  --color-primary-hover: #2f49cc;
+  --color-danger: #d64545;
+  --color-highlight-bg: #fff3cd;
+  --color-highlight-border: #f0ad4e;
+  --radius: 8px;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md) 3rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Subscription form */
+
+.subscription-form {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm) var(--spacing-md);
+  align-items: flex-end;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 160px;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.form-field input {
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 91, 253, 0.15);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+button {
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.55rem 1rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg);
+}
+
+.btn-danger {
+  background-color: transparent;
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger);
+  color: #fff;
+}
+
+.btn-edit {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+.btn-edit:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* Validation and storage messages */
+
+.form-error,
+.storage-error {
+  width: 100%;
+  color: var(--color-danger);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.storage-error {
+  background-color: #fdecea;
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Total display */
+
+.total-display {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.total-display .total-label {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.total-display .total-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Subscription list */
+
+.subscription-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.subscription-item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.subscription-item .subscription-name {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.subscription-item .subscription-cost {
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.subscription-item .subscription-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.empty-state {
+  color: var(--color-muted);
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+}
+
+/* Most expensive highlight */
+
+.most-expensive {
+  background-color: var(--color-highlight-bg);
+  border-color: var(--color-highlight-border);
+  box-shadow: inset 0 0 0 1px var(--color-highlight-border);
+}
+
+.most-expensive .subscription-cost {
+  color: #7a4a00;
+  font-weight: 700;
+}
+
+.most-expensive .subscription-cost::after {
+  content: " \1F525";
+}

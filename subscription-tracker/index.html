@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subscription Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Subscription Tracker</h1>
+
+    <section class="form-section" aria-labelledby="form-heading">
+      <h2 id="form-heading">Add / Edit Subscription</h2>
+      <form id="subscription-form" class="subscription-form" novalidate>
+        <input type="hidden" id="subscription-id" name="subscription-id" value="" />
+
+        <div class="form-field">
+          <label for="subscription-name">Name</label>
+          <input
+            type="text"
+            id="subscription-name"
+            name="name"
+            placeholder="e.g. Netflix"
+            autocomplete="off"
+          />
+          <p id="name-error" class="form-error" role="alert" hidden></p>
+        </div>
+
+        <div class="form-field">
+          <label for="subscription-cost">Monthly cost</label>
+          <input
+            type="number"
+            id="subscription-cost"
+            name="monthlyCost"
+            placeholder="0.00"
+            step="0.01"
+            min="0"
+            inputmode="decimal"
+          />
+          <p id="cost-error" class="form-error" role="alert" hidden></p>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-button" class="btn-primary">Add Subscription</button>
+          <button type="button" id="cancel-edit-button" class="btn-secondary" hidden>Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <p id="storage-error" class="storage-error" role="alert" hidden></p>
+
+    <section class="list-section" aria-labelledby="list-heading">
+      <h2 id="list-heading">Your Subscriptions</h2>
+      <ul id="subscription-list" class="subscription-list"></ul>
+      <p id="empty-message" class="empty-state" hidden>No subscriptions have been added yet.</p>
+    </section>
+
+    <section class="total-section total-display" aria-labelledby="total-heading">
+      <h2 id="total-heading" class="total-label">Total Monthly Cost</h2>
+      <p id="total-monthly-cost" class="total-value">$0.00</p>
+    </section>
+  </main>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
